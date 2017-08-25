@@ -9,6 +9,9 @@ cd ~
 # assuming the version 3.4.1 of Stanford CoreNLP
 wget http://nlp.stanford.edu/software/stanford-corenlp-full-2017-06-09.zip
 # http://nlp.stanford.edu/software/stanford-corenlp-full-2014-08-27.zip
+
+sudo apt install -y unzip
+
 unzip stanford-corenlp-full-2017-06-09.zip
 
 cd stanford-corenlp-full-2017-06-09

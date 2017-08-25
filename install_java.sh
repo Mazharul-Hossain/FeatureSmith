@@ -9,3 +9,9 @@ sudo apt upgrade
 
 sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
+
+
+sudo apt-get -Y install python-pip
+
+sudo apt update
+sudo apt upgrade
