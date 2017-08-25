@@ -27,7 +27,7 @@ while attempts < 3:
 
         content = response.read()
         parsed = json.loads(content)
-        print json.dumps(parsed, indent=4, sort_keys=True)
+        print (json.dumps(parsed, indent=4, sort_keys=True))
 
         break
     except Exception as e:
