@@ -9,21 +9,26 @@
 # https://docs.python.org/3.0/library/urllib.request.html
 
 import json
-import urllib
+import traceback
 
+import urllib.request
+
+attempt_limit = 1
 attempts = 0
 
-while attempts < 3:
+while attempts < attempt_limit:
     try:
-        sentence = 'I shot an elephant in my sleep'
-        url = "http://localhost:9000/"
+        sentence = "The quick brown fox jumped over the lazy dog."
+        data_sentence = sentence.encode('ascii')  # data should be bytes
+
+        url = "http://13.126.42.202:9000/"  # "http://localhost:9000/"
 
         data = {}
         data["properties"] = '{"annotators":"tokenize,ssplit,pos","outputFormat":"json"}'
         url_values = urllib.parse.urlencode(data)
 
         full_url = url + '?' + url_values
-        response = urllib.request.urlopen(full_url, sentence)
+        response = urllib.request.urlopen(full_url, data_sentence)
 
         content = response.read()
         parsed = json.loads(content)
@@ -32,4 +37,5 @@ while attempts < 3:
         break
     except Exception as e:
         attempts += 1
-        print str(e)
+        print (str(e))
+        traceback.print_exc()
