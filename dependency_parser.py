@@ -16,10 +16,14 @@ attempts = 0
 while attempts < 3:
     try:
         sentence = 'I shot an elephant in my sleep'
+        url = "http://localhost:9000/"
 
-        response = urllib.request.urlopen(
-            "http://localhost:9000/?properties={\"annotators\":\"tokenize,ssplit,pos\",\"outputFormat\":\"json\"}",
-            data=sentence, timeout=5)
+        data = {}
+        data["properties"] = '{"annotators":"tokenize,ssplit,pos","outputFormat":"json"}'
+        url_values = urllib.parse.urlencode(data)
+
+        full_url = url + '?' + url_values
+        response = urllib.request.urlopen(full_url, sentence)
 
         content = response.read()
         parsed = json.loads(content)
