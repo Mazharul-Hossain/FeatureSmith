@@ -2,7 +2,8 @@
 
 # sudo chmod +x *.sh
 
-# git pull https://github.com/mazhar69/FeatureSmith.git
+# git clone https://github.com/mazhar69/FeatureSmith.git
+# git pull
 
 cd ~
 cd stanford-corenlp-full-2017-06-09
